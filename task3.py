@@ -160,7 +160,7 @@ def retrieve_top_k_facts(question, k=3):
 # ========================
 # Main App
 # ========================
-st.title("🤖 RAG Chatbot - Dark Mode")
+st.title("🤖 RAG Chatbot")
 st.write("Ask a question about your uploaded knowledge base and get the most relevant facts!")
 
 # ✅ Form with Submit button
@@ -178,3 +178,4 @@ if submit_button and user_question:
 
     # Save in chat history
     st.session_state.chat_history.append((user_question, "\n".join(results)))
+
