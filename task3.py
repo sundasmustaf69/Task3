@@ -17,25 +17,27 @@ if "model" not in st.session_state:
     st.session_state.model = SentenceTransformer("all-MiniLM-L6-v2", device="cpu")
 
 # ========================
-# Custom CSS for Styling
+# Custom CSS for Dark Mode
 # ========================
 st.markdown("""
     <style>
     /* Main background */
     .stApp {
-        background: linear-gradient(135deg, #fdfbfb, #ebedee);
+        background-color: #000000;
+        color: #ffffff;
         font-family: 'Segoe UI', sans-serif;
     }
 
     /* Sidebar */
     section[data-testid="stSidebar"] {
-        background-color: #f4f6f9;
-        border-right: 2px solid #ddd;
+        background-color: #1c1c1c;
+        border-right: 2px solid #444;
+        color: #ffffff;
     }
 
     /* Headings */
     h1, h2, h3 {
-        color: #2c3e50;
+        color: #ffffff;
     }
 
     /* Buttons */
@@ -45,27 +47,38 @@ st.markdown("""
         font-weight: bold;
         border: none;
         margin-bottom: 6px;
+        background-color: #333333;
+        color: #ffffff;
     }
     div.stButton > button:hover {
         opacity: 0.9;
         transform: scale(1.02);
         transition: all 0.2s ease-in-out;
+        background-color: #555555;
     }
 
     /* Chat history box */
     .chat-box {
-        background-color: #ffffff;
-        border: 1px solid #ddd;
+        background-color: #1e1e1e;
+        border: 1px solid #444;
         padding: 12px;
         border-radius: 10px;
         margin-bottom: 8px;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        box-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        color: #ffffff;
+    }
+
+    /* Input box */
+    input[type="text"], textarea {
+        background-color: #333333;
+        color: #ffffff;
+        border: 1px solid #555555;
     }
     </style>
 """, unsafe_allow_html=True)
 
 # ========================
-# Sidebar - Stylish Controls
+# Sidebar - Controls
 # ========================
 with st.sidebar:
     st.markdown("## ⚙️ Settings")
@@ -147,7 +160,7 @@ def retrieve_top_k_facts(question, k=3):
 # ========================
 # Main App
 # ========================
-st.title("🤖 RAG Chatbot - Retrieval Engine")
+st.title("🤖 RAG Chatbot - Dark Mode")
 st.write("Ask a question about your uploaded knowledge base and get the most relevant facts!")
 
 # ✅ Form with Submit button
